@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: wojiaomht/my-app
+      IMAGE_NAME: wojiaomht/astro
 
     steps:
       # 检查代码库
@@ -21,8 +21,8 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: 1103412707@qq.com
-          password: lsdc@1003
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       # 构建Docker镜像
       - name: Build Docker image
