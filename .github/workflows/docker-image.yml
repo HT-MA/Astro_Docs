@@ -3,24 +3,20 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - master  # 当推送到main分支时触发
+      - main  # 当推送到main分支时触发
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: wojiaomht/astro
+      IMAGE_NAME: wojiaomht/my-app
 
     steps:
       # 检查代码库
       - name: Checkout repository
         uses: actions/checkout@v2
-        
-      - name: Set up tag
-        id: vars
-        run: echo "TAG=$(date +%s)" >> $GITHUB_ENV
-        
+
       # 登录到Docker Hub
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
@@ -30,9 +26,8 @@ jobs:
 
       # 构建Docker镜像
       - name: Build Docker image
-        run: docker build -t ${{ env.IMAGE_NAME }}:${{ env.TAG }} .
+        run: docker build -t ${{ env.IMAGE_NAME }}:$(date +%s) .
 
       # 推送Docker镜像到Docker Hub
       - name: Push Docker image
-        run: docker push ${{ env.IMAGE_NAME }}:${{ env.TAG }}
-
+        run: docker push ${{ env.IMAGE_NAME }}:$(date +%s)
