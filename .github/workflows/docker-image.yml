@@ -28,6 +28,9 @@ jobs:
       - name: Build Docker image
         run: docker build -t ${{ env.IMAGE_NAME }}:$(date +%s) .
 
+      - name: docker images check
+        run: docker images | grep ${{ env.IMAGE_NAME }}:$(date +%s)
+
       # 推送Docker镜像到Docker Hub
       - name: Push Docker image
         run: docker push ${{ env.IMAGE_NAME }}:$(date +%s)
