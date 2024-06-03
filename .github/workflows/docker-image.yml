@@ -36,14 +36,13 @@ jobs:
       - name: Restart Docker container on ECS
         uses: appleboy/ssh-action@v0.1.6
         with:
-          host: 121.41.120.200
+          host: ${{ secrets.IP }}
           username: root
-          password: lsdc@1003
+          password: ${{ secrets.PASSWORD }}
           port: 22
           script: |
-            cd /root/ && mkdir todd
-            # docker pull ${{ env.IMAGE_NAME }}:${{ github.run_number }}
-            # docker stop astro && docker rm  astro
-            # docker run -d --name astro -p 4321:4321 ${{ env.IMAGE_NAME }}:${{ github.run_number }}
+            docker pull ${{ env.IMAGE_NAME }}:${{ github.run_number }}
+            docker stop astro && docker rm  astro
+            docker run -d --name astro -p 4321:4321 ${{ env.IMAGE_NAME }}:${{ github.run_number }}
 
 
