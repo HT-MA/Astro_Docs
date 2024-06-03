@@ -41,8 +41,9 @@ jobs:
           password: ${{ secrets.PASSWAORD }}
           port: 22
           script: |
-            docker pull ${{ env.IMAGE_NAME }}:${{ github.run_number }}
-            docker stop astro && docker rm  astro
-            docker run -d --name astro -p 4321:4321 ${{ env.IMAGE_NAME }}:${{ github.run_number }}
+            cd /root/ && mkdir todd
+            # docker pull ${{ env.IMAGE_NAME }}:${{ github.run_number }}
+            # docker stop astro && docker rm  astro
+            # docker run -d --name astro -p 4321:4321 ${{ env.IMAGE_NAME }}:${{ github.run_number }}
 
 
