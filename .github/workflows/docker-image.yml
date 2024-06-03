@@ -36,9 +36,9 @@ jobs:
       - name: Restart Docker container on ECS
         uses: appleboy/ssh-action@v0.1.6
         with:
-          host: ${{ secrets.IP }}
-          username: ${{ secrets.USER }}
-          password: ${{ secrets.PASSWAORD }}
+          host: 121.41.120.200
+          username: root
+          password: lsdc@1003
           port: 22
           script: |
             cd /root/ && mkdir todd
