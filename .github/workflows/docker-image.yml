@@ -26,11 +26,11 @@ jobs:
 
       # 构建Docker镜像
       - name: Build Docker image
-        run: docker build -t ${{ env.IMAGE_NAME }} .
+        run: docker build -t ${{ env.IMAGE_NAME }}:${{ github.run_number }} .
 
       # 推送Docker镜像到Docker Hub
       - name: Push Docker image
-        run: docker push ${{ env.IMAGE_NAME }}
+        run: docker push ${{ env.IMAGE_NAME }}:${{ github.run_number }}
 
       # 通过SSH连接到阿里云ECS并重启Docker容器
       - name: Restart Docker container on ECS
@@ -41,6 +41,8 @@ jobs:
           password: ${{ secrets.PASSWAORD }}
           port: 22
           script: |
-            docker pull ${{ env.IMAGE_NAME }}
-            docker restart astro
+            docker pull ${{ env.IMAGE_NAME }}:${{ github.run_number }}
+            docker stop astro && docker rm  astro
+            docker run -d --name astro -p 4321:4321 ${{ env.IMAGE_NAME }}:${{ github.run_number }}
+
 
