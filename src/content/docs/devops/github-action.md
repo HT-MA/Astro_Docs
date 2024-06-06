@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: registry.cn-hangzhou.aliyuncs.com/mht1003/astro
+      IMAGE_NAME: registry.cn-hangzhou.aliyuncs.com/repo_name/astro
 
     steps:
       # 检出代码库
@@ -27,7 +27,7 @@ jobs:
 
       # 登录到阿里云 ACR
       - name: Log in to Alibaba Cloud ACR
-        run: docker login --username=langneng01 registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.ACR_PASSWORD }}
+        run: docker login --username=${{ secrets.ACR_NAME}} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.ACR_PASSWORD }}
 
       # 构建Docker镜像
       - name: Build Docker image
