@@ -18,16 +18,16 @@ export default defineConfig({
 					],
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
-				{
 					label: 'Kubernetes',
 					autogenerate: { directory: 'k8s' },
 				},
 				{
 					label: 'Terraform',
 					autogenerate: { directory: 'terraform' },
+				},
+				{
+					label: 'Devops',
+					autogenerate: { directory: 'devops' },
 				},
 			],
 		}),
