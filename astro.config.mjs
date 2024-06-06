@@ -25,6 +25,10 @@ export default defineConfig({
 					label: 'Kubernetes',
 					autogenerate: { directory: 'k8s' },
 				},
+				{
+					label: 'Terraform',
+					autogenerate: { directory: 'terraform' },
+				},
 			],
 		}),
 	],
