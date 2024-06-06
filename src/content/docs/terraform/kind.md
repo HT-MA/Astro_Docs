@@ -1,3 +1,7 @@
+---
+title: kind
+description: kind
+---
 ## Kind
 The Kind provider is used to interact with Kubernetes IN Docker (***[kind]***) to provision local Kubernetes clusters.
 https://registry.terraform.io/providers/tehcyx/kind/latest/docs

@@ -1,3 +1,7 @@
+---
+title: EKS
+description: EKS
+---
 下面是一个简单的 Terraform 示例，用于创建一个 AWS EKS 集群，其中包括三个主节点（masters）和 20 个工作节点（nodes）：
 
 ```hcl
