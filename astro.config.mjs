@@ -11,23 +11,20 @@ export default defineConfig({
 			},
 			sidebar: [
 				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', link: '/guides/example/' },
-					],
-				},
-				{
 					label: 'Kubernetes',
-					autogenerate: { directory: 'k8s' },
+					autogenerate: { directory: 'Kubernetes' },
 				},
 				{
 					label: 'Terraform',
-					autogenerate: { directory: 'terraform' },
+					autogenerate: { directory: 'Terraform' },
 				},
 				{
 					label: 'Devops',
-					autogenerate: { directory: 'devops' },
+					autogenerate: { directory: 'Devops' },
+				},
+				{
+					label: 'Linux',
+					autogenerate: { directory: 'Linux' },
 				},
 			],
 		}),
